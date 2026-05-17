@@ -1,6 +1,6 @@
 name: Pre-Compile Showdown
 on:
-  workflow_dispatch: # Allows you to press a button to run this manually
+  workflow_dispatch:
 
 jobs:
   build:
@@ -16,7 +16,6 @@ jobs:
 
       - name: Install and Compile
         run: |
-          cp config/config-example.js config/config.js
           npm install
           node pokemon-showdown --compile
 
@@ -24,6 +23,6 @@ jobs:
         run: |
           git config --global user.name "GitHub Action"
           git config --global user.email "action@github.com"
-          git add config/config.js .sim-dist/
+          git add .sim-dist/
           git commit -m "Bake compiled JavaScript files" || exit 0
           git push origin master
