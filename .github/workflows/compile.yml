@@ -23,6 +23,6 @@ jobs:
         run: |
           git config --global user.name "GitHub Action"
           git config --global user.email "action@github.com"
-          git add .sim-dist/
+          git add -f .sim-dist/
           git commit -m "Bake compiled JavaScript files" || exit 0
           git push origin master
